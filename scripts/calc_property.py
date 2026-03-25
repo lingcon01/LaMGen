@@ -193,10 +193,6 @@ if __name__ == '__main__':
     generate_mol = pd.read_csv(csv_file, header=None, names=column_names)
     print(generate_mol.head())
 
-    train_ = pd.read_csv('.data/cluster_2targets.csv')
-    train_ = train_.drop_duplicates(subset=['smiles'])
-    train_smi = train_['smiles']
-
     gen_smiles = []
     only_smiles = []
     QED = []
@@ -224,8 +220,6 @@ if __name__ == '__main__':
                     'smiles': gen_mol,
                     'target1': generate_mol['target1'][i],
                     'target2': generate_mol['target2'][i],
-                    'smiles1': generate_mol['smiles1'][i],
-                    'smiles2': generate_mol['smiles2'][i],
                     'gen_smiles': smi,
                     'QED': score.qed,
                     'LogP': score.logp,
